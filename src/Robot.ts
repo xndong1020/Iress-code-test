@@ -5,12 +5,14 @@ class Robot {
   public x: number
   public y: number
   public direction: number
+  public placed: boolean
 
   constructor(private tableBoundaries: Points = { x: 5, y: 5 }) {
     this.x = 0
     this.y = 0
     this.tableBoundaries = tableBoundaries
     this.direction = Direction.NORTH
+    this.placed = false
   }
 
   place(x: number, y: number, direction: number) {
@@ -24,6 +26,7 @@ class Robot {
       this.x = x
       this.y = y
       this.direction = direction
+      this.placed = true
     } else {
       console.error(
         'Invalid input. Please check that the input is correct (position, position, direction)'

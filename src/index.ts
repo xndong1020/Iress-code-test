@@ -1,25 +1,5 @@
 import Robot from './Robot'
+import Simulator from './Simulator'
 
-const robot = new Robot()
-robot.place(3, 3, 1)
-console.log(robot.x)
-console.log(robot.y)
-console.log(robot.direction)
-
-robot.move()
-console.log(robot.x)
-console.log(robot.y)
-console.log(robot.direction)
-
-robot.move()
-console.log(robot.x)
-console.log(robot.y)
-console.log(robot.direction)
-
-robot.left()
-console.log(robot.direction)
-
-robot.right()
-console.log(robot.direction)
-
-console.log(robot.report())
+const simulator = new Simulator(new Robot())
+simulator.showMenuPrompt()
