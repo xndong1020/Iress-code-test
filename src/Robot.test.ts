@@ -138,4 +138,22 @@ describe('Testing Robot Class', () => {
     expect(robot.y).toBe(0)
     expect(robot.direction).toBe(Direction.WEST)
   })
+
+  it('[report function]: should report the robot position and direction', () => {
+    expect(robot.report()).toBe('0,0,NORTH')
+  })
+
+  it('[validation]: should validate a correct direction', () => {
+    expect(robot.isValidDirection(Direction.EAST)).toBe(true)
+  })
+
+  it('[validation]: should validate a incorrect direction', () => {
+    expect(robot.isValidDirection(null)).toBe(false)
+  })
+
+  it('should return the correct direction string based on the direction index', () => {
+    expect(robot.getDirectionName()).toBe('NORTH')
+    robot.place(3, 3, Direction.EAST)
+    expect(robot.getDirectionName()).toBe('EAST')
+  })
 })

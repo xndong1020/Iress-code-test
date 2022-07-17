@@ -60,8 +60,18 @@ class Robot {
       : this.direction++
   }
 
+  report() {
+    return `${this.x},${this.y},${this.getDirectionName()}`
+  }
+
   isValidDirection(direction: number) {
     return Object.values(Direction).includes(direction)
+  }
+
+  getDirectionName() {
+    for (const dir in Direction) {
+      if (this.direction === Direction[dir]) return dir
+    }
   }
 }
 

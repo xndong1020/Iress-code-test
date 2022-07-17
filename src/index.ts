@@ -21,3 +21,5 @@ console.log(robot.direction)
 
 robot.right()
 console.log(robot.direction)
+
+console.log(robot.report())
