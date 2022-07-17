@@ -63,4 +63,79 @@ describe('Testing Robot Class', () => {
     expect(robot.y).toBe(3)
     expect(robot.direction).toBe(Direction.WEST)
   })
+
+  it('[move function]: should not move the robot past the boundary of the grid', () => {
+    robot.place(4, 4, Direction.NORTH)
+    robot.move()
+    expect(robot.x).toBe(4)
+    expect(robot.y).toBe(4)
+    expect(robot.direction).toBe(Direction.NORTH)
+
+    robot.right()
+    robot.move()
+    expect(robot.x).toBe(4)
+    expect(robot.y).toBe(4)
+    expect(robot.direction).toBe(Direction.EAST)
+  })
+
+  it('[right function]: should rotate the robot right', () => {
+    robot.right()
+    robot.move()
+    expect(robot.x).toBe(1)
+    expect(robot.y).toBe(0)
+    expect(robot.direction).toBe(Direction.EAST)
+  })
+
+  it('[right function]: should rotate the robot right multiple times', () => {
+    robot.place(3, 3, Direction.NORTH)
+    robot.right()
+    robot.right()
+    robot.move()
+    expect(robot.x).toBe(3)
+    expect(robot.y).toBe(2)
+    expect(robot.direction).toBe(Direction.SOUTH)
+  })
+
+  it('[right function]: should reset the robot to NORTH after 4 right rotations', () => {
+    robot.right()
+    robot.right()
+    robot.right()
+    robot.right()
+
+    expect(robot.x).toBe(0)
+    expect(robot.y).toBe(0)
+    expect(robot.direction).toBe(Direction.NORTH)
+  })
+
+  it('[left function]: should rotate the robot left', () => {
+    robot.left()
+    robot.left()
+    robot.move()
+    expect(robot.x).toBe(0)
+    expect(robot.y).toBe(0)
+    expect(robot.direction).toBe(Direction.SOUTH)
+  })
+
+  it('[left function]: should rotate the robot left multiple times', () => {
+    robot.place(0, 0, Direction.EAST)
+    robot.left()
+    robot.left()
+    robot.move()
+    expect(robot.x).toBe(0)
+    expect(robot.y).toBe(0)
+    expect(robot.direction).toBe(Direction.WEST)
+  })
+
+  it('[left function]: should reset the robot to WEST after 5 left rotations', () => {
+    robot.left()
+    expect(robot.direction).toBe(Direction.WEST)
+
+    robot.left()
+    robot.left()
+    robot.left()
+    robot.left()
+    expect(robot.x).toBe(0)
+    expect(robot.y).toBe(0)
+    expect(robot.direction).toBe(Direction.WEST)
+  })
 })

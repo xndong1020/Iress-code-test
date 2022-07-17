@@ -48,6 +48,18 @@ class Robot {
     }
   }
 
+  left() {
+    return this.direction <= 1
+      ? (this.direction = Direction.WEST)
+      : this.direction--
+  }
+
+  right() {
+    return this.direction + 1 > Object.keys(Direction).length
+      ? (this.direction = Direction.NORTH)
+      : this.direction++
+  }
+
   isValidDirection(direction: number) {
     return Object.values(Direction).includes(direction)
   }
