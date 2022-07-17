@@ -7,7 +7,7 @@ class Robot {
   public direction: number
   public placed: boolean
 
-  constructor(private tableBoundaries: Points = { x: 5, y: 5 }) {
+  constructor(private readonly tableBoundaries: Points = { x: 5, y: 5 }) {
     this.x = 0
     this.y = 0
     this.tableBoundaries = tableBoundaries
