@@ -32,4 +32,35 @@ describe('Testing Robot Class', () => {
     )
     error.mockReset()
   })
+
+  it('[move function]: should move the robot forward north', () => {
+    robot.move()
+    expect(robot.x).toBe(0)
+    expect(robot.y).toBe(1)
+    expect(robot.direction).toBe(Direction.NORTH)
+  })
+
+  it('[move function]: should move the robot forward east', () => {
+    robot.place(3, 3, Direction.EAST)
+    robot.move()
+    expect(robot.x).toBe(4)
+    expect(robot.y).toBe(3)
+    expect(robot.direction).toBe(Direction.EAST)
+  })
+
+  it('[move function]: should move the robot forward south', () => {
+    robot.place(3, 3, Direction.SOUTH)
+    robot.move()
+    expect(robot.x).toBe(3)
+    expect(robot.y).toBe(2)
+    expect(robot.direction).toBe(Direction.SOUTH)
+  })
+
+  it('[move function]: should move the robot forward west', () => {
+    robot.place(3, 3, Direction.WEST)
+    robot.move()
+    expect(robot.x).toBe(2)
+    expect(robot.y).toBe(3)
+    expect(robot.direction).toBe(Direction.WEST)
+  })
 })

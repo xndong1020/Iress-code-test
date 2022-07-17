@@ -31,6 +31,23 @@ class Robot {
     }
   }
 
+  move() {
+    switch (this.direction) {
+      case Direction.NORTH:
+        this.y + 1 < this.tableBoundaries.y ? this.y++ : null
+        break
+      case Direction.EAST:
+        this.x + 1 < this.tableBoundaries.x ? this.x++ : null
+        break
+      case Direction.SOUTH:
+        this.y >= 1 ? this.y-- : null
+        break
+      case Direction.WEST:
+        this.x >= 1 ? this.x-- : null
+        break
+    }
+  }
+
   isValidDirection(direction: number) {
     return Object.values(Direction).includes(direction)
   }
