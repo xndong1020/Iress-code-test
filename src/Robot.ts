@@ -19,7 +19,7 @@ class Robot {
     if (
       x < this.tableBoundaries.x &&
       x >= 0 &&
-      this.y < this.tableBoundaries.y &&
+      y < this.tableBoundaries.y &&
       y >= 0 &&
       this.isValidDirection(direction)
     ) {

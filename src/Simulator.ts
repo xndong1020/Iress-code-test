@@ -18,20 +18,18 @@ class Simulator {
       return process.exit(0)
     }
 
-    // if(!this.robot.placed && !cmd.action.toUpperCase().includes(Commands.EXIT)){}
-    this.parseCommandsFromPrompt(cmd.action.toUpperCase())
+    this.parseCommandsFromPrompt(cmd.action.trim().toUpperCase())
   }
 
   parseCommandsFromPrompt(command: string) {
     if (!command.includes(Commands.PLACE) && !this.robot.placed) {
       console.error(`Skipping command ${command},robot must be placed first`)
+    } else {
+      console.info(`Executing ${command}`)
+      this.executeCommand(command)
+      console.info('Command executed')
     }
 
-    console.info(`Executing ${command.trim()}`)
-
-    this.executeCommand(command.trim())
-
-    console.info('Command executed')
     return this.showMenuPrompt()
   }
 

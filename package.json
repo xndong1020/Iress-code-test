@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "start": "node dist/index.js",
+    "build": "rm -rf ./dist && tsc --build tsconfig.build.json"
   },
   "keywords": [],
   "author": "",
